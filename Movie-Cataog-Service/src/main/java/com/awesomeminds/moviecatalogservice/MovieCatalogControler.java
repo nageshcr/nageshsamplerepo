@@ -29,7 +29,8 @@ public class MovieCatalogControler {
 	@RequestMapping("/{userId}")
 	public List<CatalogItem> getCatalogItems(@PathVariable("userId") String userId) {
 
-		UserRating userRatings = restTemplate.getForObject("http://localhost:8083/rating/users/" + userId, UserRating.class);
+		UserRating userRatings = restTemplate.getForObject("http://localhost:8083/rating/users/" + userId,
+				UserRating.class);
 
 		return userRatings.getRatings().stream().map(rating -> {
 
